@@ -16,13 +16,20 @@
     pointer-events: none; /* Pass clicks through overlay */
   }
   
-  .joystick-container,
+  .joystick-container, {
+    pointer-events: auto; /* Enable events for controls */
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 100%; /* Take full height of overlay */
+  }
+
   .jump-button-container {
     pointer-events: auto; /* Enable events for controls */
     display: flex;
     align-items: center;
-    justify-content: center;
-    /* Add dimensions if needed, but joystick has own size */
+    justify-content: end;
+    margin-left: 150%;
     height: 100%; /* Take full height of overlay */
   }
   
