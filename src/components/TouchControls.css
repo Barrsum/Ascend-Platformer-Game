@@ -16,27 +16,26 @@
     pointer-events: none; /* Pass clicks through overlay */
   }
   
-  .joystick-container, {
+  .joystick-container {
     pointer-events: auto; /* Enable events for controls */
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
+    /* Add dimensions if needed, but joystick has own size */
     height: 100%; /* Take full height of overlay */
+    position: relative; /* Needed for joystick internal positioning */
   }
 
   .jump-button-container {
     pointer-events: auto; /* Enable events for controls */
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     margin-left: 150%;
+    /* Add dimensions if needed, but joystick has own size */
     height: 100%; /* Take full height of overlay */
   }
   
-  .joystick-container {
-      /* Position joystick base */
-      position: relative; /* Needed for joystick internal positioning */
-  }
   
   /* Specific styling for the jump button */
   .touch-button.jump-button {
