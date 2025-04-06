@@ -1,0 +1,184 @@
+/* src/components/Game.css */
+
+/* Game Area itself - now fills the scaled container */
+.game-area {
+    position: relative; /* Crucial for positioning elements inside */
+    width: 100%; /* Fill the scaler div */
+    height: 100%; /* Fill the scaler div */
+    background-color: transparent; /* Scaler provides the background */
+    overflow: hidden; /* Prevent elements from spilling out */
+    cursor: default;
+    outline: none; /* Remove focus outline when clicked */
+    /* border and box-shadow removed, handled by .game-scaler in App.css */
+  }
+
+  .hud {
+    position: absolute;
+    top: 15px; /* Slightly more space */
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--hud-text-color);
+    font-size: 1.1em; /* Adjusted size */
+    font-weight: 600; /* Semi-bold */
+    z-index: 100;
+    pointer-events: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Stronger shadow for readability */
+    font-variant-numeric: tabular-nums; /* Keep numbers aligned */
+  }
+
+/* --- Pause Button --- */
+.pause-button {
+  position: absolute;
+  top: 10px;
+  right: 10px; /* Position top right */
+  z-index: 110; /* Above HUD, below overlays/menus */
+  background-color: rgba(255, 255, 255, 0.15); /* Slightly less transparent */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--text-light);
+  border-radius: 50%;
+  width: 40px; /* Size */
+  height: 40px;
+  padding: 0; /* Remove padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  backdrop-filter: blur(3px); /* Subtle blur */
+}
+
+.pause-button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+.pause-button:active {
+  transform: scale(0.98);
+}
+
+.pause-button svg {
+    width: 55%; /* Icon size within button */
+    height: 55%;
+    fill: currentColor;
+}
+
+
+/* --- REDESIGNED Overlay Styles (Win/Loss) --- */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-bg); /* Use variable */
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 200; /* Below Pause Menu/Modal if they overlay */
+    text-align: center;
+    padding: 30px;
+    box-sizing: border-box;
+    animation: overlay-fade-in 0.4s ease-out forwards;
+    cursor: default;
+    backdrop-filter: blur(4px); /* Keep blur effect */
+    transform: scale(2.0);
+}
+
+@keyframes overlay-fade-in {
+    from { opacity: 0; transform: scale(0.95); } /* Fade in with scale */
+    to { opacity: 1; transform: scale(1); }
+}
+
+.overlay h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.game-over-screen h2 {
+  color: var(--accent-danger);
+  text-shadow: 0 0 10px rgba(233, 79, 79, 0.6);
+}
+
+.win-screen h2 {
+    color: var(--accent-secondary);
+    text-shadow: 0 0 10px rgba(80, 227, 194, 0.6);
+}
+
+.overlay p {
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 25px;
+    opacity: 0.9;
+    max-width: 85%;
+    line-height: 1.5;
+    color: var(--text-medium);
+}
+
+.trophy-icon {
+    font-size: 16em;
+    margin-bottom: 10px;
+    animation: trophy-subtle-bob 2.8s infinite alternate ease-in-out;
+    display: inline-block;
+    color: #ffd700;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes trophy-subtle-bob {
+    from { transform: translateY(-4px); }
+    to { transform: translateY(4px); }
+}
+
+/* --- Overlay Button Container --- */
+.overlay-buttons {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Button Styles for Overlays */
+.btn-overlay {
+    padding: 12px 28px;
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.btn-overlay:active { transform: scale(0.97) translateY(1px); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); }
+.btn-overlay:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35); filter: brightness(1.1); }
+
+.btn-restart-overlay {
+    background: linear-gradient(to bottom, var(--accent-primary), #3a7bc8);
+}
+
+.btn-gohome-overlay {
+    background: linear-gradient(to bottom, #6c757d, #5a6268);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .hud { font-size: 1em; top: 10px; left: 10px; right: 10px; }
+    .pause-button { width: 36px; height: 36px; top: 8px; right: 8px; }
+    .overlay h2 { font-size: 8em; }
+    .overlay p { font-size: 2em; margin-bottom: 20px; }
+    .trophy-icon { font-size: 3.5em; }
+    .btn-overlay { font-size: 0.9em; padding: 10px 20px; }
+    .overlay-buttons { gap: 10px; margin-top: 10px; }
+}
+
+/* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

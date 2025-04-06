@@ -1,0 +1,55 @@
+/* src/components/Header.css */
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 95px; /* Increased height slightly for two lines */
+    background-color: var(--background-medium); /* Solid background */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Adjusted border */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the inner content div */
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 500;
+    color: var(--text-light);
+    text-align: center; /* Ensure text within is centered */
+  }
+  
+  .header-content {
+     /* This div holds the stacked title and credit */
+     line-height: 1.2; /* Adjust line height for stacked text */
+  }
+  
+  .header-title {
+    margin: 0 0 2px 0; /* Small margin below title */
+    font-size: 2.2em; /* Adjust size */
+    font-weight: 700; /* Bold title */
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  .header-creator-credit {
+    margin: 0;
+    font-size: 1.4em; /* Smaller credit */
+    font-weight: 400; /* Regular weight */
+    color: var(--text-medium);
+    opacity: 0.8;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .app-header {
+      height: 80px; /* Adjust height for mobile */
+      padding: 0 15px;
+    }
+    .header-title {
+      font-size: 1.75em;
+    }
+    .header-creator-credit {
+      font-size: 1.2em;
+    }
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

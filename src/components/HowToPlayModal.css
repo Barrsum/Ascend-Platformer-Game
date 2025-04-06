@@ -1,0 +1,114 @@
+/* src/components/HowToPlayModal.css */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Darker backdrop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure modal is on top */
+    backdrop-filter: blur(4px); /* Stronger blur */
+  }
+  
+  .modal-content {
+    background-color: rgba(30, 30, 40, 0.95); /* Dark background */
+    padding: 30px 40px;
+    border-radius: 10px;
+    border: 1px solid var(--player-color);
+    box-shadow: 0 0 25px rgba(0, 170, 255, 0.6);
+    max-width: 90%;
+    width: 500px;
+    text-align: left;
+    color: var(--text-light);
+  }
+  
+  .modal-content h2 {
+    text-align: center;
+    color: var(--player-color);
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-shadow: 0 0 5px var(--player-color);
+    font-size: 1.8em;
+  }
+  
+   .modal-content h3 {
+      color: var(--goal-color);
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--platform-color);
+      padding-bottom: 5px;
+      font-size: 1.2em;
+   }
+  
+  .modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+  }
+  
+  .modal-content li {
+    margin-bottom: 12px; /* Increased spacing */
+    line-height: 1.6;
+    font-size: 0.95em;
+  }
+  .modal-content li strong {
+      color: var(--player-color);
+      margin-right: 8px; /* Increased spacing */
+      display: inline-block;
+      min-width: 80px; /* Align descriptions */
+  }
+  
+  /* Re-use .btn styles if defined globally, or define here */
+  .btn-close {
+    display: block;
+    margin: 25px auto 0 auto; /* Center button */
+    padding: 10px 25px;
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--background-dark);
+    background-image: linear-gradient(to bottom, #e0e0e0, #bbbbbb);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+     text-shadow: none;
+  }
+  
+  .btn-close:hover {
+    background-image: linear-gradient(to bottom, #f0f0f0, #cccccc);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+  }
+   .btn-close:active {
+     transform: translateY(0px);
+     box-shadow: 0 1px 3px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Responsive */
+   @media (max-width: 600px) {
+       .modal-content {
+           padding: 20px;
+           max-height: 85vh; /* Limit height */
+           overflow-y: auto; /* Allow scrolling if content overflows */
+       }
+       .modal-content h2 {
+           font-size: 1.6em;
+       }
+        .modal-content h3 {
+            font-size: 1.1em;
+        }
+       .modal-content li {
+           font-size: 0.9em;
+       }
+        .modal-content li strong {
+            min-width: 70px;
+        }
+        .btn-close {
+            padding: 10px 20px;
+        }
+   }
+
+   /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

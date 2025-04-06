@@ -1,0 +1,72 @@
+/* src/index.css */
+
+/* Apply box-sizing globally */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset default margin/padding */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Theme Colors (keep as before) */
+  --background-dark: #1f2028;
+  --background-medium: #2d2f3a;
+  --text-light: #e8e8e8;
+  --text-medium: #b0b0b0;
+  --accent-primary: #4a90e2;
+  --accent-secondary: #50e3c2;
+  --accent-danger: #e94f4f;
+  --platform-color: #3a3d4a;
+  --player-color: var(--accent-primary);
+  --enemy-color: var(--accent-danger);
+  --goal-color: var(--accent-secondary);
+  --hud-text-color: var(--text-light);
+  --overlay-bg: rgba(20, 21, 26, 0.92);
+}
+
+html {
+  height: 100%; /* Ensure html takes full height */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent text selection */
+   -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+}
+
+
+body {
+  width: 100%;
+  height: 100%; /* Ensure body takes full height */
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  overflow: hidden; /* Prevent scrolling on body */
+  overscroll-behavior: none; /* Prevent pull-to-refresh */
+  position: fixed; /* Fix body position */
+  /* Prevent tap highlight/zoom */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* #root should also fill the body */
+#root {
+  width: 100%;
+  height: 100%;
+  /* display: flex etc. moved to App.css */
+}
+
+/* Hide scrollbars if they somehow appear */
+::-webkit-scrollbar { display: none; }
+body { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

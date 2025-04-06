@@ -1,0 +1,68 @@
+/* src/App.css */
+
+/* Reset and base styles from index.css cover html/body */
+
+/* Optional wrapper if needed for specific structure, otherwise can remove */
+/* .app-wrapper { } */
+
+/* Main content area takes space BETWEEN fixed header/footer */
+.main-content-area {
+  position: relative; /* Position context for scaler/home */
+  width: 100%;
+  /* Calculate height dynamically, considering header/footer heights */
+  /* Adjust these pixel values if your header/footer heights change */
+  height: calc(100vh - 55px - 50px); /* Viewport height - header height - footer height */
+  margin-top: 55px; /* Push content down below header (match header height) */
+  /* margin-bottom is implicitly handled by footer position */
+  display: flex;
+  justify-content: center; /* Center scaler/home horizontally */
+  align-items: center; /* Center scaler/home vertically */
+  overflow: hidden; /* Clip anything overflowing this area */
+}
+
+/* Game Scaler Styles */
+.game-scaler {
+  /* Base width & height set inline (GAME_WIDTH, GAME_HEIGHT) */
+  /* transform: scale() set inline */
+  transform-origin: center center; /* Scale from center */
+  background-color: var(--background-medium); /* Background of the game area itself */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Optional shadow effect */
+  overflow: hidden; /* CRITICAL: Clips the game content perfectly */
+  position: relative; /* Needed for absolute positioning of game-area inside */
+  /* Centered by parent's flexbox */
+  flex-shrink: 0; /* Prevent flexbox from shrinking it */
+}
+
+/* Ensure Game component fills the scaler perfectly */
+.game-scaler .game-area {
+    position: absolute !important; /* Force absolute positioning */
+    top: 0;
+    left: 0;
+    width: 100% !important; /* Force dimensions */
+    height: 100% !important; /* Force dimensions */
+    border: none !important; /* Override any border from Game.css */
+    box-shadow: none !important; /* Override any shadow from Game.css */
+    box-sizing: border-box !important; /* Standard practice */
+    background-color: transparent !important; /* Let scaler handle the background */
+    outline: none !important; /* Ensure no focus outline here */
+}
+
+/* Home Screen centering */
+.main-content-area {
+  position: relative;
+  width: 100%;
+  /* === UPDATE HEIGHT CALCULATION === */
+  height: calc(100vh - 65px - 50px); /* Using new Desktop header height (65px) */
+  margin-top: 65px; /* Match new Desktop header height */
+}
+
+/* Responsive height calculation */
+@media (max-width: 600px) { /* Or your chosen breakpoint */
+  .main-content-area {
+    /* === UPDATE RESPONSIVE HEIGHT CALCULATION === */
+    height: calc(100vh - 60px - 50px); /* Using new Mobile header (60px) & Footer (50px) */
+    margin-top: 60px; /* Match new Mobile header height */
+  }
+}
+
+/* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

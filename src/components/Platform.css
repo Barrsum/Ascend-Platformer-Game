@@ -1,0 +1,10 @@
+/* src/components/Platform.css */
+.platform {
+    position: absolute;
+    background-color: var(--platform-color);
+    border: 1px solid #222; /* Darker border */
+    box-sizing: border-box;
+    z-index: 1; /* Below player */
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

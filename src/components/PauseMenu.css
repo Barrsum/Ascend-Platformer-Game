@@ -1,0 +1,92 @@
+/* src/components/PauseMenu.css */
+.pause-menu-overlay {
+    position: absolute; /* Position relative to the game area */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-bg); /* Use same overlay background */
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 250; /* Higher than HUD, maybe controls, lower than modal */
+    backdrop-filter: blur(5px);
+    animation: pause-fade-in 0.2s ease-out forwards;
+  }
+  
+  @keyframes pause-fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+  }
+  
+  .pause-menu-content {
+    background-color: var(--background-medium);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    min-width: 280px;
+  }
+  
+  .pause-menu-content h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: var(--text-light);
+    font-weight: 600;
+  }
+  
+  .pause-menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  /* Base style for pause menu buttons */
+  .btn-pause {
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: 500; /* Medium weight */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 85%; /* Make buttons wide */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+  .btn-pause:active { transform: scale(0.98); }
+  .btn-pause:hover { filter: brightness(1.15); transform: translateY(-1px); }
+  
+  .btn-resume {
+      background-color: var(--accent-secondary); /* Teal for resume */
+  }
+  
+  .btn-how-to-play-pause {
+      background-color: var(--accent-primary); /* Blue for how-to-play */
+  }
+  
+  .btn-quit {
+      background-color: #6c757d; /* Grey for quit/menu */
+  }
+  
+  /* Responsive */
+  @media (max-width: 480px) {
+      .pause-menu-content {
+          padding: 25px 20px;
+          min-width: 240px;
+      }
+      .pause-menu-content h2 {
+          font-size: 1.8em;
+          margin-bottom: 25px;
+      }
+      .btn-pause {
+          font-size: 1em;
+          width: 95%;
+      }
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

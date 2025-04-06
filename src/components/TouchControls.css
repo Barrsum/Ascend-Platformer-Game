@@ -1,0 +1,90 @@
+/* src/components/TouchControls.css */
+
+/* This overlay is fixed to the viewport */
+.touch-controls-viewport-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 150px; /* Increased height to accommodate joystick base comfortably */
+    z-index: 150; /* Ensure it's above game, below modals/overlays */
+    display: flex;
+    justify-content: space-between; /* Space out joystick and jump button */
+    align-items: center; /* Vertically center content */
+    padding: 10px 5%; /* Use percentage padding for responsiveness */
+    box-sizing: border-box;
+    pointer-events: none; /* Pass clicks through overlay */
+  }
+  
+  .joystick-container,
+  .jump-button-container {
+    pointer-events: auto; /* Enable events for controls */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Add dimensions if needed, but joystick has own size */
+    height: 100%; /* Take full height of overlay */
+  }
+  
+  .joystick-container {
+      /* Position joystick base */
+      position: relative; /* Needed for joystick internal positioning */
+  }
+  
+  /* Specific styling for the jump button */
+  .touch-button.jump-button {
+    background-color: rgba(74, 144, 226, 0.4); /* Player color base */
+    border: 1px solid rgba(74, 144, 226, 0.5);
+    color: white;
+    border-radius: 50%;
+    width: 70px; /* Slightly larger jump button */
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.1s ease, transform 0.1s ease;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1.8em; /* Icon size */
+  }
+  
+  .touch-button.jump-button:active {
+    background-color: rgba(74, 144, 226, 0.6);
+    transform: scale(0.95);
+  }
+  
+  .touch-button.jump-button svg {
+      width: 50%;
+      height: 50%;
+      fill: currentColor;
+  }
+  
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+      .touch-controls-viewport-overlay {
+          height: 130px;
+          padding: 10px 4%;
+      }
+      /* Joystick size might be adjusted via its 'size' prop */
+      .touch-button.jump-button {
+          width: 65px;
+          height: 65px;
+          font-size: 1.7em;
+      }
+  }
+  
+  @media (max-width: 480px) {
+      .touch-controls-viewport-overlay {
+          height: 110px;
+          padding: 5px 3%;
+      }
+       .touch-button.jump-button {
+          width: 60px;
+          height: 60px;
+          font-size: 1.6em;
+      }
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

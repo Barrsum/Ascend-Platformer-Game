@@ -1,0 +1,12 @@
+/* src/components/Player.css */
+.player {
+    position: absolute; /* Essential for positioning with left/bottom */
+    background-color: var(--player-color);
+    border: 1px solid #005580; /* Slightly darker border */
+    box-sizing: border-box; /* Include border in width/height */
+    z-index: 10; /* Ensure player is above platforms */
+    /* Removing transition for physics accuracy */
+    /* transition: left 0.05s linear, bottom 0.05s linear; */
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

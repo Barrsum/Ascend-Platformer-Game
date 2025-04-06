@@ -1,0 +1,203 @@
+/* src/components/Game.css */
+
+/* Game Area itself - now fills the scaled container */
+.game-area {
+    position: relative; /* Crucial for positioning elements inside */
+    width: 100%; /* Fill the scaler div */
+    height: 100%; /* Fill the scaler div */
+    background-color: transparent; /* Scaler provides the background */
+    overflow: hidden; /* Prevent elements from spilling out */
+    cursor: default;
+    outline: none; /* Remove focus outline when clicked */
+  }
+
+  .hud {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--hud-text-color);
+    font-size: 1.1em;
+    font-weight: 600;
+    z-index: 100;
+    pointer-events: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    font-variant-numeric: tabular-nums;
+  }
+
+/* --- Pause Button (Repositioned) --- */
+.pause-button {
+  position: absolute;
+  /* REMOVED top/right */
+  bottom: 10px; /* Position near bottom */
+  left: 50%;   /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for exact centering */
+  z-index: 160; /* Above HUD, Above basic touch controls potentially, below menus */
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--text-light);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  backdrop-filter: blur(3px);
+}
+
+.pause-button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateX(-50%) scale(1.05); /* Keep translateX for centering */
+}
+.pause-button:active {
+  transform: translateX(-50%) scale(0.98); /* Keep translateX for centering */
+}
+
+.pause-button svg {
+    width: 55%;
+    height: 55%;
+    fill: currentColor;
+}
+
+
+/* --- REDESIGNED Overlay Styles (Win/Loss) --- */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-bg);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 200; /* Below Pause Menu/Modal */
+    text-align: center;
+    padding: 30px;
+    box-sizing: border-box;
+    animation: overlay-fade-in 0.4s ease-out forwards;
+    cursor: default;
+    backdrop-filter: blur(4px);
+}
+
+@keyframes overlay-fade-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.overlay h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.game-over-screen h2 {
+  color: var(--accent-danger);
+  text-shadow: 0 0 10px rgba(233, 79, 79, 0.6);
+}
+
+.win-screen h2 {
+    color: var(--accent-secondary);
+    text-shadow: 0 0 10px rgba(80, 227, 194, 0.6);
+}
+
+.overlay p {
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 25px;
+    opacity: 0.9;
+    max-width: 85%;
+    line-height: 1.5;
+    color: var(--text-medium);
+}
+
+.trophy-icon {
+    font-size: 4em;
+    margin-bottom: 10px;
+    animation: trophy-subtle-bob 2.8s infinite alternate ease-in-out;
+    display: inline-block;
+    color: #ffd700;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes trophy-subtle-bob {
+    from { transform: translateY(-4px); }
+    to { transform: translateY(4px); }
+}
+
+/* --- Overlay Button Container --- */
+.overlay-buttons {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-overlay {
+    padding: 12px 28px;
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.btn-overlay:active { transform: scale(0.97) translateY(1px); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); }
+.btn-overlay:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35); filter: brightness(1.1); }
+
+.btn-restart-overlay {
+    background: linear-gradient(to bottom, var(--accent-primary), #3a7bc8);
+}
+
+.btn-gohome-overlay {
+    background: linear-gradient(to bottom, #6c757d, #5a6268);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .hud { font-size: 1em; top: 10px; left: 10px; right: 10px; }
+    /* Adjust pause button size/position for smaller screens if needed */
+    .pause-button { width: 36px; height: 36px; bottom: 8px; }
+    .overlay h2 { font-size: 2em; }
+    .overlay p { font-size: 1em; margin-bottom: 20px; }
+    .trophy-icon { font-size: 8.5em; }
+    .btn-overlay { font-size: 0.9em; padding: 10px 20px; }
+    .overlay-buttons { gap: 10px; margin-top: 10px; }
+}
+
+/* src/components/Goal.css */
+.goal {
+    position: absolute;
+    background-color: rgba(80, 227, 194, 0.85); /* Use variable, slightly more opaque */
+    border: 1px solid #30a088; /* Darker secondary color border */
+    box-sizing: border-box;
+    z-index: 50; /* <<< Increased Z-Index significantly */
+                 /* Needs to be above platforms (z-index: 1) and potentially */
+                 /* other elements, but below player (z-index: 10 or higher) */
+                 /* Player z-index is currently 10, so 50 is safe. */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em; /* Adjust emoji size */
+    color: white;
+    border-radius: 5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

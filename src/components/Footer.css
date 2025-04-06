@@ -1,0 +1,91 @@
+/* src/components/Footer.css */
+.app-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Keep height consistent */
+    /* --- Style Changes --- */
+    background-color: var(--background-medium); /* Solid background */
+    /* REMOVED backdrop-filter */
+    /* --- End Style Changes --- */
+    border-top: 1px solid rgba(255, 255, 255, 0.08); /* Slightly less visible border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 25px; /* Match header padding */
+    box-sizing: border-box;
+    z-index: 500;
+    color: var(--text-medium);
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between; /* Keep space-between */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .creator-credit-footer {
+    margin: 0;
+    font-size: 1.1em; /* Slightly smaller */
+    opacity: 0.8;
+    white-space: nowrap; /* Prevent wrapping if possible */
+  }
+  .creator-credit-footer {
+    margin: 0;
+    font-size: 1.1em; /* Slightly smaller */
+    opacity: 0.8;
+    white-space: nowrap; /* Prevent wrapping if possible */
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 15px; /* Slightly less gap */
+  }
+  
+  .social-links a {
+    color: var(--text-medium);
+    font-size: 1.3em; /* Slightly smaller icons */
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+  }
+  
+  .social-links a:hover {
+    color: var(--text-light);
+    transform: scale(1.1);
+  }
+  
+  /* Responsive - Keep side-by-side, adjust sizes */
+  @media (max-width: 600px) {
+    .app-footer {
+      height: 50px; /* Increase height slightly on mobile */
+      padding: 0 15px; /* Less padding */
+    }
+    .footer-content {
+      /* Keep flex-direction: row */
+      /* Justify content remains space-between */
+    }
+    .creator-credit-footer {
+      font-size: 1.1em; /* Further reduce size */
+    }
+    .social-links {
+      font-size: 1.2em; /* Further reduce icon size */
+      gap: 30px; /* Less gap */
+    }
+  }
+  
+  @media (max-width: 400px) {
+    /* On very narrow screens, maybe hide credit text if it collides */
+    /* .creator-credit-footer { display: none; } */
+    /* OR adjust padding further */
+     .app-footer {
+        padding: 0 10px;
+     }
+     .social-links {
+        gap: 10px;
+     }
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */
