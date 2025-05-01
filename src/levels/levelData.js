@@ -60,7 +60,7 @@ export const levels = [
       { x: GAME_WIDTH / 2 + 50, y: 300, width: 70, height: 20 }, // Top: 320 (Jump ~100px)
       // Top platform
       // Needs jump ~130px from previous
-      { x: 500, y: 0, width: 20, height: 350 }, // Right Wall (Top: 350)
+      { x: 500, y: 0, width: 20, height: 340 }, // Right Wall (Top: 350)
       { x: 0, y: 440, width: GAME_WIDTH, height: 20 }, // Top: 450
       // Descending platforms to goal (Drops, no hard jumps)
       { x: GAME_WIDTH - 200, y: 350, width: 70, height: 20 },
